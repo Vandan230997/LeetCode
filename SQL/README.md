@@ -11,6 +11,7 @@ LEFT JOIN address a
 ON p.personId = a.personId
 ```
 
+
 <h3> 176. Second Highest Salary </h3>
 <h4>Write a solution to find the second highest salary from the Employee table. If there is no second highest salary, return null. </h4>
 <h4> Solution: </h4>
