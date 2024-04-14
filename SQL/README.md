@@ -20,3 +20,18 @@ ON p.personId = a.personId
 SELECT IFNULL((SELECT distinct Salary FROM Employee ORDER BY Salary DESC LIMIT 1,1),NULL) AS SecondHighestSalary;
 ```
 
+
+<h3> 177. Nth Highest Salary </h3>
+<h4>Write a solution to find the nth highest salary from the Employee table. If there is no nth highest salary, return null. </h4>
+<h4> Solution: </h4>
+
+```sql
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+declare A int;
+set A = N-1;
+
+  RETURN ( select nullif ((SELECT DISTINCT salary FROM Employee ORDER BY salary desc LIMIT A,1),NULL)
+  );
+END
+```
