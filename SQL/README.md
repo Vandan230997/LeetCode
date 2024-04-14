@@ -35,3 +35,11 @@ set A = N-1;
   );
 END
 ```
+
+<h3> 178. Rank Scores </h3>
+<h4>Write a solution to find the rank of the scores. The ranking should be calculated according to the following rules: The scores should be ranked from the highest to the lowest. If there is a tie between two scores, both should have the same ranking. After a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no holes between ranks. </h4>
+<h4> Solution: </h4>
+
+```sql
+select score, DENSE_RANK() over(order by score desc) as 'rank' from Scores;
+```
