@@ -41,7 +41,7 @@ END
 <h4> Solution: </h4>
 
 ```sql
-select score, DENSE_RANK() over(order by score desc) as 'rank' from Scores;
+SELECT score, DENSE_RANK() OVER(ORDER by score desc) as 'rank' FROM Scores;
 ```
 
 <h3> 180. Consecutive Numbers </h3>
@@ -49,9 +49,10 @@ select score, DENSE_RANK() over(order by score desc) as 'rank' from Scores;
 <h4> Solution: </h4>
 
 ```sql
-select id, name
-from students s
-where department_id not in
-(select id
-from departments);
+SELECT DISTINCT t1.num AS ConsecutiveNums
+FROM logs t1
+JOIN logs t2 ON t1.id = t2.id - 1
+JOIN logs t3 ON t1.id = t3.id - 2
+WHERE t1.num = t2.num AND t1.num = t3.num;
+
 ```
