@@ -43,3 +43,15 @@ END
 ```sql
 select score, DENSE_RANK() over(order by score desc) as 'rank' from Scores;
 ```
+
+<h3> 180. Consecutive Numbers </h3>
+<h4F>Find all numbers that appear at least three times consecutively. </h4>
+<h4> Solution: </h4>
+
+```sql
+select id, name
+from students s
+where department_id not in
+(select id
+from departments);
+```
