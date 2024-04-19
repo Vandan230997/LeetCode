@@ -54,5 +54,15 @@ FROM logs t1
 JOIN logs t2 ON t1.id = t2.id - 1
 JOIN logs t3 ON t1.id = t3.id - 2
 WHERE t1.num = t2.num AND t1.num = t3.num;
+```
 
+
+<h3> 181. Employees Earning More Than Their Managers </h3>
+<h4>Write a solution to find the employees who earn more than their managers. Return the result table in any order. </h4>
+<h4> Solution: </h4>
+
+```sql
+SELECT e.name AS Employee FROM Employee e
+JOIN Employee m
+ON e.managerId = m.id and e.salary>m.salary; 
 ```
