@@ -66,3 +66,15 @@ SELECT e.name AS Employee FROM Employee e
 JOIN Employee m
 ON e.managerId = m.id and e.salary>m.salary; 
 ```
+
+
+<h3> 182. Duplicate Emails </h3>
+<h4>Write a solution to report all the duplicate emails. Note that it's guaranteed that the email field is not NULL.
+Return the result table in any order.</h4>
+<h4> Solution: </h4>
+
+```sql
+select distinct d1.email as Email from Person d1
+join Person d2
+on d1.email = d2.email and d1.id != d2.id;
+```
