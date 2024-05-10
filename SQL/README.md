@@ -74,7 +74,19 @@ Return the result table in any order.</h4>
 <h4> Solution: </h4>
 
 ```sql
-select distinct d1.email as Email from Person d1
-join Person d2
-on d1.email = d2.email and d1.id != d2.id;
+SELECT DISTINCT d1.email as Email from Person d1
+JOIN Person d2
+ON d1.email = d2.email and d1.id != d2.id;
+```
+
+
+
+<h3>183. Customers Who Never Order </h3>
+<h4>Write a solution to find all customers who never order anything. Return the result table in any order.</h4>
+<h4> Solution: </h4>
+
+```sql
+SELECT name AS Customers
+FROM customers
+WHERE id NOT IN (SELECT DISTINCT customerId FROM orders)
 ```
